@@ -59,14 +59,14 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("com.google.android.material:material:1.2.1")
+                implementation("com.google.android.material:material:1.4.0")
                 implementation("com.squareup.sqldelight:android-driver:${Versions.sqlDelight}")
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation("junit:junit:4.13.1")
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosMain by getting {
@@ -78,11 +78,11 @@ kotlin {
     }
 }
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(32)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdkVersion(24)
-        targetSdkVersion(30)
+        targetSdkVersion(32)
     }
 
     // TODO: Java Version
