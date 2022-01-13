@@ -79,5 +79,7 @@ dependencies {
     testImplementation("org.robolectric:robolectric:4.4")
     androidTestImplementation("androidx.test:runner:1.3.0")
     implementation(project(":shared"))
+    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation ("com.squareup.okhttp3:logging-interceptor:3.13.1")
 
 }
