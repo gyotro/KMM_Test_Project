@@ -13,6 +13,8 @@ object Versions {
   const val testRunner = "1.3.0"
 
   const val sqlDelight = "1.4.3"
+  //new version
+  //const val sqlDelight = "1.5.0"
 }
 
 
