@@ -1,0 +1,57 @@
+query getPage($page : Int!, $size : Int!) {
+    dessertsPage(page : $page, size : $size)
+    {
+        info {
+            count,
+            next,
+            pages,
+            prev
+        },
+        result {
+            id,
+            userId,
+            name,
+            description,
+            url
+        }
+    }
+}
+
+query GetDesserts{
+    desserts {
+        id,
+        name,
+        description,
+        url
+    }
+}
+
+query GetDessert($dessertId: String!){
+    dessert(dessertId : $dessertId) {
+        id,
+        userId,
+        name,
+        description,
+        url,
+        reviews {
+            rating,
+            text,
+            id
+        }
+    }
+}
+
+query getProfile{
+    getProfile {
+        desserts {
+            description,
+            id,
+            name
+        }
+        user {
+            email,
+            id
+        }
+    }
+}
+

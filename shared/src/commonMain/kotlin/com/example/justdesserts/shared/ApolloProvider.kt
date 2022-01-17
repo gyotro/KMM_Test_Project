@@ -3,14 +3,12 @@ package com.example.justdesserts.shared
 import Database
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.api.ApolloExperimental
-import com.apollographql.apollo.interceptor.ApolloRequestInterceptor
 import com.apollographql.apollo.interceptor.BearerTokenInterceptor
 import com.apollographql.apollo.interceptor.TokenProvider
 import com.apollographql.apollo.network.http.ApolloHttpNetworkTransport
 import com.example.justdesserts.shared.cache.DatabaseDriverFactory
 import com.example.justdesserts.shared.logger.ApolloLoggerInterceptor
 import com.example.justdesserts.shared.logger.CustomLog
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 // initializing Apollo Client: per utilizzare il token verrà estesa l'interfaccia TokenProvider, che
 // ogniqualvolta si effettuerà una chiamata con questo client, provvederà ad invocare i metodi di createToken
@@ -20,8 +18,7 @@ class ApolloProvider(databaseDriverFactory: DatabaseDriverFactory, customLog: Cu
     @ApolloExperimental
     // richiamiamo il Logger
     internal val loggerInterceptor = ApolloLoggerInterceptor(customLog)
-    private val database = Database(databaseDriverFactory)
-    @ExperimentalCoroutinesApi
+    val database = Database(databaseDriverFactory)
     @ApolloExperimental
     internal val apolloClient: ApolloClient = ApolloClient(
         networkTransport = ApolloHttpNetworkTransport(

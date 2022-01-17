@@ -112,6 +112,7 @@ val packForXcode by tasks.creating(Sync::class) {
 }
 tasks.getByName("build").dependsOn(packForXcode)
 
+// serve x far autogenerare le classi a partire dalla definizione delle mutation e query di graphQL
 apollo {
     // instruct the compiler to generate Kotlin models
     generateKotlinModels.set(true)
