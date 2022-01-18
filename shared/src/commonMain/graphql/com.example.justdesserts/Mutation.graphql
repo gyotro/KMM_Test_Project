@@ -41,6 +41,7 @@ mutation postReview($dessertId: String! ,$reviewIn: ReviewInput!){
 mutation updateDessert($dessertIn : DessertInput! ,$id : String!){
     updateDessert(id : $id, dessertIn : $dessertIn) {
         id,
+        userId,
         name,
         description,
         url

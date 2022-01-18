@@ -1,8 +1,10 @@
 package com.example.justdesserts.shared.cache
 // ktlint-disable filename
 
+import com.example.justdesserts.*
 import com.example.justdesserts.GetDessertQuery
 import com.example.justdesserts.GetPageQuery
+import com.example.justdesserts.GetProfileQuery
 
 /*
  in questo file faremo delle funzioni che serviranno per serializzare i dati in arrivo
@@ -34,4 +36,16 @@ fun GetDessertQuery.Dessert.toDessert() = Dessert(
 fun GetDessertQuery.Dessert.toDessertDetail() = DessertDetail(
     dessert = this.toDessert(),
     review = emptyList()
+)
+
+fun GetProfileQuery.Dessert.toDessert() = Dessert(
+    id = id, userId = userId, description = description, name = name, url = url
+)
+
+fun AddDessertMutation.PostDessert.toDessert() = Dessert(
+    id = id, userId = userId, description = description, name = name, url = url
+)
+
+fun UpdateDessertMutation.UpdateDessert.toDessert() = Dessert(
+    id = id, userId = userId, description = description, name = name, url = url
 )

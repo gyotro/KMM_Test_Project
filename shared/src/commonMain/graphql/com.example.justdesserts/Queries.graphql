@@ -46,7 +46,9 @@ query getProfile{
         desserts {
             description,
             id,
-            name
+            userId,
+            name,
+            url
         }
         user {
             email,
