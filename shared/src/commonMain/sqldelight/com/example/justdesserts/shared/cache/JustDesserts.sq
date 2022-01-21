@@ -55,3 +55,7 @@ VALUES (?,?);
 
 removeUserState:
 DELETE FROM UserState;
+
+insertNewReview:
+INSERT INTO Review
+VALUES (?, ?, ?, ?, ?);

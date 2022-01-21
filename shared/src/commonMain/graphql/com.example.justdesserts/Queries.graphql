@@ -36,7 +36,9 @@ query GetDessert($dessertId: String!){
         reviews {
             rating,
             text,
-            id
+            id,
+            userId,
+            dessertId
         }
     }
 }

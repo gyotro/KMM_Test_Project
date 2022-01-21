@@ -35,7 +35,7 @@ fun GetDessertQuery.Dessert.toDessert() = Dessert(
 
 fun GetDessertQuery.Dessert.toDessertDetail() = DessertDetail(
     dessert = this.toDessert(),
-    review = emptyList()
+    review = reviews.map { it.toReview() }
 )
 
 fun GetProfileQuery.Dessert.toDessert() = Dessert(

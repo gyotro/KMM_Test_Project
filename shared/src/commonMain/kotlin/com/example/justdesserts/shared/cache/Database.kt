@@ -1,7 +1,4 @@
-import com.example.justdesserts.shared.cache.DatabaseDriverFactory
-import com.example.justdesserts.shared.cache.Dessert
-import com.example.justdesserts.shared.cache.JustDesserts
-import com.example.justdesserts.shared.cache.UserState
+import com.example.justdesserts.shared.cache.*
 
 // attraverso questa classe andremo a richiamare gli statement SQL che sono creati nella cartella sqlDelight
 class Database(databaseDriverFactory: DatabaseDriverFactory) {
@@ -60,6 +57,22 @@ Sia le variabili, che le funzioni, sono autogenerate da Kotlin a partire dal fil
         dbQueries.transaction {
             insertNewUserState(userId, token)
         }
+    }
+
+    internal fun insertReview(review: Review){
+        dbQueries.transaction {
+            postNewReview(review)
+        }
+    }
+
+    private fun postNewReview(review: Review) {
+        dbQueries.insertNewReview(
+            id = review.id,
+            userId = review.userId,
+            text = review.text,
+            dessert = review.dessert,
+            rating = review.rating
+        )
     }
 
     private fun insertNewUserState(userId: String, token: String) {
